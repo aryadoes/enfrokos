@@ -266,14 +266,20 @@
       const input = document.getElementById("url").value;
       const iframe = document.getElementById("iframe");
       const msg = document.getElementById("browser-msg");
-    if (input.includes("wikipedia.org") || input.includes("youtube.com")) {
+if (input.includes("wikipedia.org")) {
+    // Load Wikipedia in the iframe
     iframe.src = input;
     msg.textContent = "";
+} else if (input.includes("youtube.com")) {
+    // Open full YouTube in a new tab
+    window.open(input, "_blank");
+    msg.textContent = "Opened YouTube in a new tab.";
 } else {
     msg.textContent = "Only Wikipedia and YouTube supported. Use https://";
 }
 
       }
+    }
 
     function calcPress(val) {
       const disp = document.getElementById("calc-display");
